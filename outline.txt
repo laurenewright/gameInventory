@@ -1,0 +1,13 @@
+Project: games inventory
+Goal: create a editable library for the games i own so i can play through my catalogue.
+
+Code Layers:
+--HTML--
+CSS for design
+Maybe JS for the buttons? Going to see if php can do this though since my focus with this project is to use as much php as possible
+
+--PHP--
+Check added games against the database, throw an error if the game already exists in the database
+
+Utilize MySql and Apache2
+test
