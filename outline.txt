@@ -10,4 +10,4 @@ Maybe JS for the buttons? Going to see if php can do this though since my focus 
 Check added games against the database, throw an error if the game already exists in the database
 
 Utilize MySql and Apache2
-test
+test2
