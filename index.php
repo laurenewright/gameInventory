@@ -14,19 +14,24 @@
      </form>
           <?php
           include "gameList.php";
-          // include "connect.php";
-          $status = false;
-          $field = "priority";
+          // include "connection.php";
+          $status = true;
+          $field = "progress";
           $filter = array();
           foreach ($list as $originalKey => $item) {
           if ($status == "all" || $item["complete"] == $status){
                if (isset($field) && isset($item[$field])){
                     $filter[$originalKey] = $item[$field];
                }else { 
-               $filter[$originalKey] = $item["progress"] + 12;
+                    $filter[$originalKey] = $item["progress"] + 1;
                }
+               // else {
+               //      $filter[$originalKey] = $item["progress"];
+               // }
           }
-          }
+     }
+     asort($filter);
+
                echo "<table>";
                echo "<tr>";
                echo "<th>Title</th>";
@@ -37,9 +42,8 @@
                echo "<tr>";
                echo "<td>" . $list[$id]["title"] . "</td>\n";
                echo "<td>" . $list[$id]["progress"] . "</td>\n";
-               echo "<td>" . $list[$id]["complete"] . "</td>\n";
                echo "<td>";
-                    if($list[$id]["complete"]) {
+                    if($list[$id]["progress"] == 100) {
                          echo "Yes";
                     } else {
                          echo "No";
