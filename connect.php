@@ -1,1 +1,4 @@
-ignore this
+<?
+echo "ignore this";
+
+?>
