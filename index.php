@@ -8,29 +8,35 @@
      </header>
      <div>
      <form >
-          Search: <input type="text" name="search">
+          <input type="text" name="search">
           <input type="submit" value="search">
-          <button type="button">Add</button>
+          <input type="submit" value="add">
+          <!-- <button type="button">Add</button> -->
      </form>
           <?php
           include "gameList.php";
-          // include "connection.php";
-          $status = true;
-          $field = "progress";
           $filter = array();
-          foreach ($list as $originalKey => $item) {
-          if ($status == "all" || $item["complete"] == $status){
-               if (isset($field) && isset($item[$field])){
-                    $filter[$originalKey] = $item[$field];
-               }else { 
-                    $filter[$originalKey] = $item["progress"] + 1;
+          if($list as $originalKey => $item){
+               if($progress === 100){
+                    $complete = true && arsort($complete);
+               }else{
+                    $filter($progress);
                }
-               // else {
-               //      $filter[$originalKey] = $item["progress"];
-               // }
+
           }
-     }
-     asort($filter);
+     //      $status = "all";
+     //      $field = "progress";
+     //      $filter = array();
+     //      foreach ($list as $originalKey => $item) {
+     //      if ($status == "all" || $item["complete"] == $status){
+     //           if (isset($field) && isset($item[$field])){
+     //                $filter[$originalKey] = $item[$field];
+     //           }else { 
+     //                $filter[$originalKey] = $item["complete"];
+     //           }
+     //      }
+     // }
+     // arsort($filter);
 
                echo "<table>";
                echo "<tr>";
@@ -43,7 +49,7 @@
                echo "<td>" . $list[$id]["title"] . "</td>\n";
                echo "<td>" . $list[$id]["progress"] . "</td>\n";
                echo "<td>";
-                    if($list[$id]["progress"] == 100) {
+                    if($list[$id]["complete"]) {
                          echo "Yes";
                     } else {
                          echo "No";
